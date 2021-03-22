@@ -2,7 +2,7 @@
 
 @section('body')
 @include('layouts.partials.navigation')
-<div class="py-6">
+<div class="py-5">
     @yield('content')
 </div>
 
