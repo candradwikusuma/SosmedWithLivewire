@@ -35,7 +35,7 @@
                             class="flex items-center focus:outline-none px-4 md:px-6 ">
                             <div class="flex-shrink-0 mr-2">
                                 <img class="w-8 h-8 rounded object-cover object-center"
-                                    src="{{auth()->user()->avatar() }}">
+                                    src="{{ auth()->user()->avatar() }}">
                             </div>
                             <div class="block text-cool-gray-400 hover:text-white pr-4 md:py-2">
                                 {{ auth()->user()->name }}
@@ -46,7 +46,8 @@
                     </div>
                     <div :class="{'md:hidden':!dropDownIsOpen}"
                         class="block md:absolute top-0 right-0 md:mr-4 md:mt-16 md:bg-cool-gray-700 md:w-56 md:rounded shadow-lg md:py-2">
-                        <a href="#" class="block text-cool-gray-400 hover:text-white px-4 ">Profile</a>
+                        <a href="{{ route('account.show',auth()->user()->usernameOrHash()) }}"
+                            class="block text-cool-gray-400 hover:text-white px-4 ">Profile</a>
                         <a href="#" class="block text-cool-gray-400 hover:text-white px-4 ">Your Friends</a>
                         <a href="{{ route('settings') }}"
                             class="block text-cool-gray-400 hover:text-white px-4 ">Settings</a>

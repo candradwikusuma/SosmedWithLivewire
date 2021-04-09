@@ -8,13 +8,14 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
-use App\Http\Livewire\Account\Edit;
+use App\Http\Livewire\Account\{Edit,Show};
 use Illuminate\Support\Facades\Route;
 
 
 Route::view('/', 'welcome')->name('home');
 
-Route::get('settings',Edit::class,'render')->name('settings');
+Route::get('settings',Edit::class)->name('settings');
+Route::get('user/{identifier}',Show::class)->name('account.show');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
