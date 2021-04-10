@@ -20,7 +20,9 @@ module.exports = {
                 cool: {
                     gray: {
                         200: "#E5E7EB",
+                        300: "#D1D5DB",
                         400: "#9CA3AF",
+                        500: "#6B7280",
                         600: "#4B5563",
                         700: "#374151",
                         800: "#1F2937",
@@ -33,6 +35,7 @@ module.exports = {
     variants: {
         extend: {
             backgroundColor: ["active"],
+            opacity: ["disabled"],
         },
     },
     purge: {

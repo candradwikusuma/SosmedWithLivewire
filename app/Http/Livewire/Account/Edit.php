@@ -13,16 +13,25 @@ class Edit extends Component
     public $username;
     public $picture;
     public $description;
+    // public $isDisabled = false;
+
     public function mount(){
         $this->name=auth()->user()->name;
         $this->username=auth()->user()->username;
         $this->description=auth()->user()->description;
+        
     }
     public function updated($field){
         $this->validateOnly($field,[ 
             'username'=>'min:3|max:25|unique:users,username,'.auth()->id(),
             'name'=>'min:3|string',
         ]);
+
+        // if(!is_null($field) && !empty($field)) {
+        // $isDisabled = true;
+        // } else {
+        // $isDisabled = false;
+        // }
     }
     public function update(){
        

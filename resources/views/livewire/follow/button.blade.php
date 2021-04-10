@@ -1,10 +1,10 @@
 <div>
-    @if(auth()->user()->isNot($user))
+    @if(auth()->check() && uth()->user()->isNot($user))
 
     @if (auth()->user()->following($user))
-    <x-button.danger wire:click="unfollow">Unfollow</x-button.danger>
+    <x-button.danger wire:click="unfollow" wire:loading.attr="disabled">Unfollow</x-button.danger>
     @else
-    <x-button.primary wire:click="follow">Follow</x-button.primary>
+    <x-button.primary wire:click="follow" wire:loading.attr="disabled">Follow</x-button.primary>
     @endif
 
     @else

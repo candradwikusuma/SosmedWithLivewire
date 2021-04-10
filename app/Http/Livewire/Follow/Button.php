@@ -11,10 +11,12 @@ class Button extends Component
         $this->user=$user;
     }
     public function follow(){
-        auth()->user()->follow($this->user);
+        auth()->user()->follow($this->user); 
+        $this->emit('statisticUpdated');
     }
     public function unfollow(){
         auth()->user()->unfollow($this->user);
+        $this->emit('statisticUpdated');
     }
     public function render()
     {

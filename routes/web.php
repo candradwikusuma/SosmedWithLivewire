@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 
-Route::get('settings',Edit::class)->name('settings');
+Route::get('settings',Edit::class)->name('settings')->middleware('auth');
 Route::get('user/{identifier}',Show::class)->name('account.show');
 
 Route::middleware('guest')->group(function () {
