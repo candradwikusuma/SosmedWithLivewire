@@ -23,8 +23,9 @@
         <div x-bind:class="{'hidden':!open}"
             class="leading-loose py-1 md:py-0 md:items-center md:flex justify-between w-full">
             <div class="flex flex-col md:flex-row md:items-center py-2">
+                <a href="{{ route('timeline') }}"
+                    class="block text-cool-gray-400 hover:text-white px-4 md:py-2">Timeline</a>
                 <a href="" class="block text-cool-gray-400 hover:text-white px-4 md:py-2">Explore</a>
-                <a href="" class="block text-cool-gray-400 hover:text-white px-4 md:py-2">Timeline</a>
 
             </div>
             <div class="flex flex-col md:flex-row md:items-center">

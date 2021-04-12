@@ -7,7 +7,7 @@
                 <form wire:submit.prevent="update">
                     <div class="mb-5 flex items-center ">
                         <div wire:loading wire:target="picture">
-                            <x-loading class="mr-2" />
+                            <x-loading class="la-dark mr-2" />
                         </div>
                         <div class="flex-shrink-0 mr-2">
                             @if ($picture)
@@ -70,7 +70,12 @@
                         {{ $isDisabled ? 'disabled' : '' }}>
                     Update
                     </button> --}}
-                    <x-button.primary wire:loading.attr="disabled">Update
+                    <x-button.primary wire:loading.attr="disabled">
+                        <svg fill="#FFF" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                        </svg>
+                        <span>Update</span>
                     </x-button.primary>
 
                 </form>

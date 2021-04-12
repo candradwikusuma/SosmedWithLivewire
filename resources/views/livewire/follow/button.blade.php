@@ -1,5 +1,5 @@
 <div>
-    @if(auth()->check() && uth()->user()->isNot($user))
+    @if(auth()->check() && auth()->user()->isNot($user))
 
     @if (auth()->user()->following($user))
     <x-button.danger wire:click="unfollow" wire:loading.attr="disabled">Unfollow</x-button.danger>
