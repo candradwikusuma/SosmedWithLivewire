@@ -13,7 +13,8 @@ class Status extends Model
     protected $fillable=['hash','body'];
     // protected $guarded=[];
 
-    public function Published(){
+    
+    public function published(){
         return $this->created_at->diffForHumans();
     }
     public function user(){

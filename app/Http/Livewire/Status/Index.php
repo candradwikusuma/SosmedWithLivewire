@@ -8,7 +8,11 @@ use App\Models\Timeline\Status;
 class Index extends Component
 {
     public $perPage=10;
-    
+    protected $listeners=['statusUpdated'];
+
+    public function statusUpdated(){
+        
+    }
     public function loadMore(){
         $this->perPage+=10;
     }
