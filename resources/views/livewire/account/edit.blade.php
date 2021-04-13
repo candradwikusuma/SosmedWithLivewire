@@ -24,7 +24,7 @@
                             {{-- <input type="file" wire:model="picture" id="picture" class="w-full"> --}}
                             <div class="flex items-center justify-start ">
                                 <label
-                                    class="w-64 flex flex-row items-center px-3 py-2 bg-white text-indigo-500 rounded-lg shadow-sm tracking-wide uppercase border border-indigo-500 cursor-pointer hover:bg-indigo-500 hover:text-white">
+                                    class="w-48 flex flex-row items-center px-3 py-2 bg-white text-indigo-500 rounded-lg shadow-sm tracking-wide uppercase border border-indigo-500 cursor-pointer hover:bg-indigo-500 hover:text-white">
                                     <svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
                                         <path

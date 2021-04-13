@@ -16,11 +16,13 @@ use App\Http\Controllers\Auth\EmailVerificationController;
 
 Route::view('/', 'welcome')->name('home');
 
-Route::get('timeline',TimelineController::class)->name('timeline');
-Route::get('settings',Edit::class)->name('settings')->middleware('auth');
-Route::get('user/{identifier}',Show::class)->name('account.show');
+Route::middleware(['auth'])->group(function () {
+    Route::get('timeline',TimelineController::class)->name('timeline');
+    Route::get('settings',Edit::class)->name('settings');
+    Route::get('user/{identifier}',Show::class)->name('account.show');
+    Route::get('status/{hash}',App\Http\Livewire\Status\Show::class)->name('status.show');
+});
 
-Route::get('status/{hash}',App\Http\Livewire\Status\Show::class)->name('status.show');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
