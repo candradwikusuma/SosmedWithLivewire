@@ -12,7 +12,19 @@
                             <h1 class="font-semibold text-xl text-cool-gray-900 mb-2">{{$user->name}}</h1>
                             <div class="text-cool-gray-600 mb-5">
                                 <div>
-                                    {{ $user->description }}
+                                    {{-- {{ $user->description }} --}}
+
+                                    {{ $bio }}
+                                    @if (strlen($bio)>=90)
+                                    <button wire:click="readMore"
+                                        class="focus:outline-none text-sm hover:underline {{ $readmore?'block':'hidden' }}">Read
+                                        more</button>
+
+                                    <button wire:click="less"
+                                        class="focus:outline-none text-sm hover:underline {{ $readmore?'hidden':'block' }}">Less</button>
+                                    @endif
+
+
                                 </div>
                                 <div>
                                     Joined:{{ $user->created_at->format('d F, Y') }}

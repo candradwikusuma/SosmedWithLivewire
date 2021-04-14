@@ -1,10 +1,13 @@
 <div class="container">
     <div class="flex">
         <div class="w-full md:w-1/2 ">
-            <div class="bg-white rounded border border-cool-gray-200 shadow p-5">
-                <h1 class="capitalize text-lg text-cool-gray-700 mb-5">Update Your Profile</h1>
+            <div class="bg-cool-gray-50 rounded border border-cool-gray-200 shadow ">
+                <h1
+                    class="capitalize text-lg text-cool-gray-700 mb-5 border-b border-cool-gray-200 bg-cool-gray-100 px-5 py-2 font-semibold">
+                    Update Your Profile
+                </h1>
 
-                <form wire:submit.prevent="update">
+                <form wire:submit.prevent="update" class="p-5">
                     <div class="mb-5 flex items-center ">
                         <div wire:loading wire:target="picture">
                             <x-loading class="la-dark mr-2" />
@@ -13,9 +16,9 @@
                             @if ($picture)
                             <img src="{{ $picture->temporaryUrl() }}" alt=""
                                 class="w-16 h-16 object-cover object-center rounded-full">
-                            {{-- @elseif(!$picture && isset(auth()->user()->picture) )
-                            <img src="{{ auth()->user()->avatar() }}" alt=""
-                            class="w-16 h-16 object-cover object-center rounded-full"> --}}
+                            @elseif(!$picture && isset(auth()->user()->picture) )
+                            <img wire:loading.remove src="{{ auth()->user()->avatar() }}" alt=""
+                                class="w-16 h-16 object-cover object-center rounded-full">
                             @endif
 
                         </div>
@@ -38,8 +41,6 @@
                             <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
                         </div>
-
-
                     </div>
                     <div class="mb-5">
                         <label for="username" class="block font-medium mb-1">Username</label>
@@ -71,11 +72,15 @@
                     Update
                     </button> --}}
                     <x-button.primary wire:loading.attr="disabled">
-                        <svg fill="#FFF" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-                        </svg>
-                        <span>Update</span>
+                        <div class="flex items-center ">
+                            <svg class="mr-1" fill=" #FFF" height="18" viewBox="0 0 24 24" width="18"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                            </svg>
+                            <span>Update</span>
+                        </div>
+
                     </x-button.primary>
 
                 </form>

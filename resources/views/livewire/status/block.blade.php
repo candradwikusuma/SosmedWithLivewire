@@ -1,16 +1,39 @@
-<div class="flex" wire:poll.60s>
+<div class="flex w-full" wire:poll.60s>
     <div class="flex-shrink-0 mr-3">
+
         <a href="{{ route('account.show',$status->user->usernameOrHash()) }}">
             <img class="w-14 h-14 rounded-full object-center object-cover" src="{{ $status->user->avatar() }}" alt="">
         </a>
+
+
     </div>
-    <div>
-        <a href="{{ route('account.show',$status->user->usernameOrHash()) }}"
-            class="font-semibold text-cool-gray-900 hover:underline">{{ $status->user->name }}
-        </a>
+    <div class="w-full relative">
+        <div class="flex justify-between " x-data="{dropdownIsOpen:false}">
+            <a href="{{ route('account.show',$status->user->usernameOrHash()) }}"
+                class="font-semibold text-cool-gray-900 hover:underline">{{ $status->user->name }}
+            </a>
+            <button @click="dropdownIsOpen = !dropdownIsOpen"
+                class="hover:bg-cool-gray-100 p-1 rounded-full focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+            </button>
+            <div :class="{'hidden': !dropdownIsOpen}"
+                class="text-sm bg-white border border-cool-gray-200 shadow rounded-md py-2 w-48 absolute right-0 top-0 mt-8">
+                <a href=""
+                    class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Edit
+                    Status</a>
+                <a href=""
+                    class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Hapus
+                    Status</a>
+            </div>
+        </div>
+
         <a href="{{ route('status.show',$status->hash) }}">
             <div class="text-sm text-cool-gray-400 mb-2">{{ $status->published() }}</div>
-            <div class="text-cool-gray-700 leading-relaxed">{{ $status->body }}</div>
+            <div class="text-cool-gray-700 leading-relaxed">{!! nl2br($status->body) !!}</div>
             <div class="text-sm text-cool-gray-400 mt-2 flex  items-center">
                 <div class="flex items-center mr-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24"
