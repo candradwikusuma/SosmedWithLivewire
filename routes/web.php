@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/{identifier}',Show::class)->name('account.show');
     Route::get('status/{hash}/edit',App\Http\Livewire\Status\Edit::class)->name('status.edit');
     Route::get('status/{hash}',App\Http\Livewire\Status\Show::class)->name('status.show');
+    Route::get('status/{hash}/delete',App\Http\Livewire\Status\Delete::class)->name('status.delete');
 });
 
 

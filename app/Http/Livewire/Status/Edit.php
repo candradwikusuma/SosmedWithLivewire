@@ -24,7 +24,7 @@ class Edit extends Component
             'body'=>$this->body
         ]);
         
-        return redirect()->route('status.show',$this->status->hash);
+        return redirect()->route('status.show',$this->status->user->usernameOrHash());
     }
     public function render()
     {

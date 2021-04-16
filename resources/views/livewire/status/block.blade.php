@@ -26,7 +26,7 @@
                 <a href="{{ route('status.edit',$status->hash) }}"
                     class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Edit
                     Status</a>
-                <a href=""
+                <a href="{{ route('status.delete',$status->hash) }}"
                     class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Hapus
                     Status</a>
             </div>

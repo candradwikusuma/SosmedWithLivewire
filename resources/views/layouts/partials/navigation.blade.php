@@ -49,7 +49,7 @@
 
                     </div>
                     <div :class="{'md:hidden':!dropDownIsOpen}"
-                        class="block md:absolute top-0 right-0 md:mr-4 md:mt-16 md:bg-white md:w-56 md:rounded shadow-lg md:py-2">
+                        class="block md:absolute top-0 right-0 md:mr-4 md:mt-14 md:bg-white md:w-56 md:rounded-lg md:border border-cool-gray-200 shadow md:py-2">
                         <a href="{{ route('account.show',auth()->user()->usernameOrHash()) }}"
                             class="block text-cool-gray-600 hover:cool-gray-800 px-4 ">Profile</a>
                         <a href="#" class="block text-cool-gray-600 hover:cool-gray-800 px-4 ">Your Friends</a>
