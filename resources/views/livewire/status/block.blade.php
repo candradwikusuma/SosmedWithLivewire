@@ -12,6 +12,7 @@
             <a href="{{ route('account.show',$status->user->usernameOrHash()) }}"
                 class="font-semibold text-cool-gray-900 hover:underline">{{ $status->user->name }}
             </a>
+            @can('update', $status)
             <button @click="dropdownIsOpen = !dropdownIsOpen"
                 class="hover:bg-cool-gray-100 p-1 rounded-full focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -22,13 +23,15 @@
             </button>
             <div :class="{'hidden': !dropdownIsOpen}"
                 class="text-sm bg-white border border-cool-gray-200 shadow rounded-md py-2 w-48 absolute right-0 top-0 mt-8">
-                <a href=""
+                <a href="{{ route('status.edit',$status->hash) }}"
                     class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Edit
                     Status</a>
                 <a href=""
                     class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Hapus
                     Status</a>
             </div>
+            @endcan
+
         </div>
 
         <a href="{{ route('status.show',$status->hash) }}">

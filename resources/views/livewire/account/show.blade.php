@@ -30,6 +30,7 @@
                                     Joined:{{ $user->created_at->format('d F, Y') }}
                                 </div>
                             </div>
+
                             <livewire:follow.button :user='$user'>
                         </div>
                     </div>

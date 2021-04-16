@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('timeline',TimelineController::class)->name('timeline');
     Route::get('settings',Edit::class)->name('settings');
     Route::get('user/{identifier}',Show::class)->name('account.show');
+    Route::get('status/{hash}/edit',App\Http\Livewire\Status\Edit::class)->name('status.edit');
     Route::get('status/{hash}',App\Http\Livewire\Status\Show::class)->name('status.show');
 });
 

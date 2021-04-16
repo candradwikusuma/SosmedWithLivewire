@@ -10,7 +10,7 @@
 
     @else
 
-    <a class="flex justify-center lg:w-2/3 md:w-2/3 sm:w-full px-4 py-2 text-sm font-medium text-cool-gray-200 bg-cool-gray-600  rounded-md hover:bg-cool-gray-500 shadow focus:outline-none focus:border-cool-gray-600  active:bg-cool-gray-600 transition duration-75 ease-in-out "
+    <a class="flex justify-center lg:w-40 md:w-36:w-full px-4 py-2 text-sm font-medium text-cool-gray-200 bg-cool-gray-600  rounded-md hover:bg-cool-gray-500 shadow focus:outline-none focus:border-cool-gray-600  active:bg-cool-gray-600 transition duration-75 ease-in-out "
         href="/settings">Edit your profile</a>
     @endif
     @endauth
