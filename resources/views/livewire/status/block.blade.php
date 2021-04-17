@@ -8,20 +8,22 @@
 
     </div>
     <div class="w-full relative">
-        <div class="flex justify-between " x-data="{dropdownIsOpen:false}">
+        {{-- x-data="{dropdownIsOpen:false}" --}}
+        <div class="flex justify-between" x-data="dropdown()">
             <a href="{{ route('account.show',$status->user->usernameOrHash()) }}"
                 class="font-semibold text-cool-gray-900 hover:underline">{{ $status->user->name }}
             </a>
             @can('update', $status)
-            <button @click="dropdownIsOpen = !dropdownIsOpen"
-                class="hover:bg-cool-gray-100 p-1 rounded-full focus:outline-none">
+            {{-- @click="dropdownIsOpen = !dropdownIsOpen" --}}
+            <button x-on:click="open" class="hover:bg-cool-gray-100 p-1 rounded-full focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                 </svg>
             </button>
-            <div :class="{'hidden': !dropdownIsOpen}"
+            {{-- :class="{'hidden': !dropdownIsOpen}" --}}
+            <div x-show="isOpen()" x-on:click.away="close"
                 class="text-sm bg-white border border-cool-gray-200 shadow rounded-md py-2 w-48 absolute right-0 top-0 mt-8">
                 <a href="{{ route('status.edit',$status->hash) }}"
                     class="block px-3 py-1 hover:bg-cool-gray-100 text-cool-gray-600 hover:text-cool-gray-800">Edit
@@ -58,3 +60,20 @@
         </a>
     </div>
 </div>
+
+<script>
+    function dropdown() {
+        return {
+            show: false,
+            open() { 
+                this.show = true 
+                },
+            close() { 
+                this.show = false 
+                },
+            isOpen() { 
+                return this.show === true 
+                },
+        }
+    }
+</script>
