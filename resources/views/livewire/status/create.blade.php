@@ -5,7 +5,7 @@
     <form wire:submit.prevent="store">
         <div class="p-4 bg-cool-gray-50 ">
             <textarea placeholder="What's in your mind" wire:model="body"
-                class="w-full form-textarea bg-transparent  rounded-md  border-0  focus:shadow-none p-0 focus:ring-0  resize-none  "></textarea>
+                class="w-full bg-transparent  rounded-md  border-0  focus:shadow-none p-0 focus:ring-0  resize-none  "></textarea>
             @error('body')
             <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
             @enderror

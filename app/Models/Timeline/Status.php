@@ -13,7 +13,7 @@ class Status extends Model
     use HasFactory;
     protected $fillable=['hash','body'];
     // protected $guarded=[];
-
+    protected $withCount=['comments'];
     
     public function published(){
         return $this->created_at->diffForHumans();

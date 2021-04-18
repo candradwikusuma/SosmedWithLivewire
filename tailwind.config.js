@@ -38,6 +38,7 @@ module.exports = {
         extend: {
             backgroundColor: ["active"],
             opacity: ["disabled"],
+            borderWidth: ["last"],
         },
     },
     purge: {

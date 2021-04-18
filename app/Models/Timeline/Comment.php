@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Comment extends Model
 {
     use HasFactory;
-    protected $fillable=['body','hash','parend_id' ];
-
+    protected $fillable=['body','hash','parent_id','status_id' ];
+    protected $with=['user'];
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -21,6 +21,6 @@ class Comment extends Model
         return $this->hasMany(self::class,'parent_id');
     }
     public function status(){
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Status::class); 
     }
 }
