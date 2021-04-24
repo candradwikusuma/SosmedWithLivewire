@@ -18,10 +18,11 @@ class Index extends Component
     public function mount($status){
         $this->status=$status;
     }
+   
     public function showReplyForm($id){
        $this->commentParentId=$id;
-       $username=Comment::find($this->commentParentId)->user->usernameOrHash();
-       $this->body="@{$username} ";
+        $username=Comment::find($this->commentParentId)->user->usernameOrHash();
+        $this->body="@{$username} ";
     }
     public function reply(){
         $this->validate([
@@ -33,8 +34,8 @@ class Index extends Component
             'body'=>$this->body,
             'hash'=>\Str::random(22).strtotime(Carbon::now())
        ]);
-
-       $this->body="";
+        $this->commentParentId=null;
+       $this->body='';
     }
     public function render()
     {

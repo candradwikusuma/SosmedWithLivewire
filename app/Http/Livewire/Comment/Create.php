@@ -16,7 +16,6 @@ class Create extends Component
         $this->validateOnly($fields,[
             'body'=>'max:255'
         ]);
-
     }
     public function store(){
         $this->validate([
