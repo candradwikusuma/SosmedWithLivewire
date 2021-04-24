@@ -17,8 +17,9 @@
                         {{ $comment->childern_count }} {{ Str::plural('Reply', $comment->childern_count) }}
                     </div>
                     <button onclick="window.location.href='#showReplyForm'"
-                        wire:click.prevent="showReplyForm({{ $comment->id }})" class="focus:outline-none">Add
+                        wire:click.prevent="showReplyForm({{ $comment->id }})" class="focus:outline-none mr-3">Add
                         reply</button>
+                    <livewire:comment.like :key="$comment->id" :comment="$comment" />
                 </div>
             </div>
         </div>
@@ -35,6 +36,10 @@
                     <div class="font-semibold">{{ $comment->user->name }}</div>
                     <div class="text-sm text-cool-gray-600 mb-2">{{ $comment->created_at->diffForHumans() }}</div>
                     <div class="leading-relaxed text-cool-gray-700">{!! nl2br($comment->body) !!}</div>
+                    <div class="text-sm mt-2 text-cool-gray-600 ">
+                        <livewire:comment.like :key="$comment->id" :comment="$comment" />
+
+                    </div>
                 </div>
             </div>
             @endforeach
@@ -50,6 +55,7 @@
                     class="bg-blue-500 hover:bg-blue-600 py-2 text-center w-full text-white rounded-b-lg">Reply</button>
             </form>
         </div>
+
     </div>
 
 

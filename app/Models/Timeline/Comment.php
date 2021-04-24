@@ -3,11 +3,13 @@
 namespace App\Models\Timeline;
 
 use App\Models\User;
+use App\Traits\Likeable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
+    use Likeable;
     use HasFactory;
     protected $fillable=['body','hash','parent_id','status_id' ];
     protected $with=['user'];
@@ -23,4 +25,5 @@ class Comment extends Model
     public function status(){
         return $this->belongsTo(Status::class); 
     }
+     
 }

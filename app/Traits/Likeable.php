@@ -1,0 +1,13 @@
+<?php
+namespace App\Traits;
+use App\Models\Like;
+
+trait likeable{
+
+    public function likes(){
+        return $this->morphMany(Like::class,'likeable');
+    }
+    public function isLiked(){
+        return (bool) $this->likes()->whereUserId(auth()->user()->id)->first()?true:false;
+    }
+}

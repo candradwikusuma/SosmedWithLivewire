@@ -1,9 +1,13 @@
 <div class="bg-white lg:h-screen w-full lg:w-1/5 lg:fixed lg:border-r border-cool-gray-200">
+    @auth
     <div class="bg-cool-gray-50 border-b border-cool-gray-200 px-6 py-5">
         <div class="flex">
             <div class="flex-shrink-0 mr-3">
+
                 <img class="w-14 h-14 rounded-full object-cover object-center" src="{{ auth()->user()->avatar() }}"
                     alt="">
+
+
             </div>
             <div>
                 <h1 class="">{{ auth()->user()->name }}</h1>
@@ -17,9 +21,9 @@
         </div>
     </div>
     <div class="py-2 leading-loose">
-        @auth
+
         <a href="{{ route('timeline') }}" class="block py-1 px-6 hover:bg-cool-gray-100">Timeline</a>
-        @endauth
+
         <a href="{{ route('account.show',auth()->user()->usernameOrHash()) }}"
             class="block py-1 px-6 hover:bg-cool-gray-100">Profile</a>
         <a href="#" class="block py-1 px-6 hover:bg-cool-gray-100">Your Friends</a>
@@ -34,4 +38,14 @@
             @csrf
         </form>
     </div>
+    @else
+    <div class="py-2 leading-loose">
+
+
+        <a href="{{ route('Login') }}" class="block py-1 px-6 hover:bg-cool-gray-100">Login</a>
+        <a href="{{ route('Register') }}" class="block py-1 px-6 hover:bg-cool-gray-100">Register</a>
+
+    </div>
+    @endauth
+
 </div>

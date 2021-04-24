@@ -6,7 +6,10 @@
 
 <div class="flex flex-col lg:flex-row">
     <div class="w-full lg:w-1/5">
+
+
         <livewire:navbar />
+
     </div>
 
     <div class="flex-1">

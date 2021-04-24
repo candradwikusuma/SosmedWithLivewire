@@ -14,10 +14,10 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 
 
-Route::view('/', 'welcome')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('timeline',TimelineController::class)->name('timeline');
+    // Route::view('/', 'welcome')->name('home');
+    Route::get('/',TimelineController::class)->name('timeline');
     Route::get('settings',Edit::class)->name('settings');
     Route::get('user/{identifier}',Show::class)->name('account.show');
     Route::get('status/{hash}/edit',App\Http\Livewire\Status\Edit::class)->name('status.edit');
