@@ -8,7 +8,7 @@ use App\Http\Livewire\Account\{Edit,Show};
 // use App\Http\Livewire\Status\Show;
 use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
-use App\Http\Controllers\TimelineController;
+use App\Http\Controllers\{TimelineController,FollowingController};
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('status/{hash}/delete',App\Http\Livewire\Status\Delete::class)->name('status.delete');
 });
 
+Route::get('user/{identifier}/{follow}',FollowingController::class)->name('account.following');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
